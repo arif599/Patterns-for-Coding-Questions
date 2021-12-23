@@ -15,17 +15,17 @@ Example 2:
 """
 
 def max_sub_array_of_size_k(k, arr):
-    maxSum = 0
-    windowSum = 0
-    left = 0
+    maxSum = 0 # initialize maxsum to be 0
+    windowSum = 0 # stores the sum of the window
+    left = 0 # left pointer of the window
 
-    for right in range(len(arr)):
-        windowSum += arr[right]
+    for right in range(len(arr)): 
+        windowSum += arr[right] # add elements to the window
         
-        if right >= k-1:
+        if right >= k-1: # once the window of size k has been established, now check for max sum
             maxSum = max(maxSum, windowSum)
-            windowSum -= arr[left]
-            left += 1
+            windowSum -= arr[left] # remove left element from the window sum
+            left += 1 # increment left pointer
 
     return maxSum
 
